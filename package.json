@@ -1,0 +1,23 @@
+{
+  "name": "node-sumo-logger",
+  "version": "0.0.1",
+  "description": "A **maintained** sumo logger library for nodejs",
+  "main": "./dist/SumoLogger.js",
+  "types": "./dist/BattlePassManager.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "files": [
+    "./dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikearche/node-sumo-logger.git"
+  },
+  "author": "mikearche",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikearche/node-sumo-logger/issues"
+  },
+  "homepage": "https://github.com/mikearche/node-sumo-logger#readme"
+}
