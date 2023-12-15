@@ -44,10 +44,8 @@ Sending a regular log:
 await sumoLogger.log("myVeryAwesomeLog!");
 await sumoLogger.log(JSON.stringify({ myAwesome: "log" }));
 
-// Send logs in parallel
-await Promise.allSettled(
-  ["logOne", "logTwo"].map((myLog) => sumoLogger.log(myLog))
-);
+// Send multiple logs
+await sumoLogger.log(["logOne", "logTwo"].join("\n"));
 ```
 
 Sending a metric via Graphite:
@@ -58,6 +56,11 @@ import { GraphiteMessage } from "sumo-logger.js";
 const graphiteMessage = new GraphiteMessage("myAwesomePath", "myValue");
 
 await sumoLogger.log(graphiteMessage);
+
+// Send multiple logs
+await sumoLogger.log(
+  [graphiteMessage.toString(), graphiteMessage.toString()].join("\n")
+);
 ```
 
 Sending a metric via Carbon 2.0:
@@ -72,6 +75,11 @@ const carbonTwoMessage = new CarbonTwoMessage(
 );
 
 await sumoLogger.log(carbonTwoMessage);
+
+// Send multiple logs
+await sumoLogger.log(
+  [carbonTwoMessage.toString(), carbonTwoMessage.toString()].join("\n")
+);
 ```
 
 ## Contributing
