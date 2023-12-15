@@ -1,9 +1,9 @@
 {
-  "name": "node-sumo-logger",
-  "version": "0.0.1",
+  "name": "sumo-logger.js",
+  "version": "0.0.2",
   "description": "A **maintained**, zero dependency, sumo logger library for nodejs",
-  "main": "./dist/SumoLogger.js",
-  "types": "./dist/BattlePassManager.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
