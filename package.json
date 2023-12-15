@@ -1,6 +1,9 @@
 {
   "name": "sumo-logger.js",
   "version": "0.0.2",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "description": "A **maintained**, zero dependency, sumo logger library for nodejs",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
