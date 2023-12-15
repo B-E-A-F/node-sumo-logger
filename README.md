@@ -53,7 +53,7 @@ await Promise.allSettled(
 Sending a metric via Graphite:
 
 ```typescript
-import { SumoLogger, GraphiteMessage } from "sumo-logger.js";
+import { GraphiteMessage } from "sumo-logger.js";
 
 const graphiteMessage = new GraphiteMessage("myAwesomePath", "myValue");
 
@@ -63,7 +63,7 @@ await sumoLogger.log(graphiteMessage);
 Sending a metric via Carbon 2.0:
 
 ```typescript
-import { SumoLogger, CarbonTwoMessage } from "sumo-logger.js";
+import { CarbonTwoMessage } from "sumo-logger.js";
 
 const carbonTwoMessage = new CarbonTwoMessage(
   "myIntrinsicTag",
