@@ -26,7 +26,8 @@ export class SumoLogger {
 
     if (typeof this.options.endpoint !== "string") {
       throw new ValidationError(
-        `Expected endpoint to be of type string, but received ${this.options.endpoint}`
+        `Expected endpoint to be of type string, but received ${typeof this
+          .options.endpoint}`
       );
     }
 
@@ -35,7 +36,8 @@ export class SumoLogger {
       typeof this.options.contentType !== "string"
     ) {
       throw new ValidationError(
-        `Expected endpoint to be of type string, but received ${this.options.contentType}`
+        `Expected endpoint to be of type string, but received ${typeof this
+          .options.contentType}`
       );
     }
 
@@ -44,7 +46,8 @@ export class SumoLogger {
       typeof this.options.sourceName !== "string"
     ) {
       throw new ValidationError(
-        `Expected endpoint to be of type string, but received ${this.options.sourceName}`
+        `Expected endpoint to be of type string, but received ${typeof this
+          .options.sourceName}`
       );
     }
 
@@ -53,13 +56,15 @@ export class SumoLogger {
       typeof this.options.sourceCategory !== "string"
     ) {
       throw new ValidationError(
-        `Expected endpoint to be of type string, but received ${this.options.sourceCategory}`
+        `Expected endpoint to be of type string, but received ${typeof this
+          .options.sourceCategory}`
       );
     }
 
     if (this.options.hostName && typeof this.options.hostName !== "string") {
       throw new ValidationError(
-        `Expected endpoint to be of type string, but received ${this.options.hostName}`
+        `Expected endpoint to be of type string, but received ${typeof this
+          .options.hostName}`
       );
     }
   }
@@ -67,7 +72,7 @@ export class SumoLogger {
   private _buildHeaders(): Headers {
     const headers = new Headers();
 
-    if (this.options.contentType !== "json") {
+    if (this.options.contentType && this.options.contentType !== "json") {
       headers.append(
         "Content-Type",
         `application/vnd.sumologic.${this.options.contentType}`
@@ -98,7 +103,7 @@ export class SumoLogger {
       !(message instanceof CarbonTwoMessage)
     ) {
       throw new InvalidParameterError(
-        `Error invoking log method: Expected message to be of type string, but received ${message}`
+        `Error invoking log method: Expected message to be of type string, but received ${typeof message}`
       );
     }
 
