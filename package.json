@@ -1,6 +1,6 @@
 {
   "name": "sumo-logger.js",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "engines": {
     "node": ">=18.0.0"
   },
@@ -29,5 +29,9 @@
   "bugs": {
     "url": "https://github.com/mikearche/node-sumo-logger/issues"
   },
-  "homepage": "https://github.com/mikearche/node-sumo-logger#readme"
+  "homepage": "https://github.com/mikearche/node-sumo-logger#readme",
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "typescript": "^5.3.3"
+  }
 }
