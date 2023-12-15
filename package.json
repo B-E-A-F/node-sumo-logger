@@ -16,6 +16,13 @@
   },
   "author": "mikearche",
   "license": "MIT",
+  "keywords": [
+    "sumo",
+    "logger",
+    "logging",
+    "log",
+    "sumologic"
+  ],
   "bugs": {
     "url": "https://github.com/mikearche/node-sumo-logger/issues"
   },
