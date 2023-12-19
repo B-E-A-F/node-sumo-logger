@@ -5,11 +5,17 @@ import { ValidationError } from "./ValidationError";
 
 type SumoLoggerConfig = {
   endpoint: string;
-  contentType?: "graphite" | "carbon2" | "json";
   sourceName?: string;
   sourceCategory?: string;
   hostName?: string;
 };
+
+type ContentType =
+  | "application/json"
+  | "application/vnd.sumologic.graphite"
+  | "application/vnd.sumologic.carbon2";
+
+type Message = GraphiteMessage | CarbonTwoMessage | string;
 
 export class SumoLogger {
   private options: SumoLoggerConfig;
@@ -28,16 +34,6 @@ export class SumoLogger {
       throw new ValidationError(
         `Expected endpoint to be of type string, but received ${typeof this
           .options.endpoint}`
-      );
-    }
-
-    if (
-      this.options.contentType &&
-      typeof this.options.contentType !== "string"
-    ) {
-      throw new ValidationError(
-        `Expected endpoint to be of type string, but received ${typeof this
-          .options.contentType}`
       );
     }
 
@@ -69,17 +65,28 @@ export class SumoLogger {
     }
   }
 
-  private _buildHeaders(): Headers {
+  private _buildContentType(message: Message): ContentType {
+    if (typeof message === "string") {
+      return "application/json";
+    }
+
+    if (message instanceof GraphiteMessage) {
+      return "application/vnd.sumologic.graphite";
+    }
+
+    if (message instanceof CarbonTwoMessage) {
+      return "application/vnd.sumologic.carbon2";
+    }
+
+    throw new Error("Critical error trying to resolve ContentType");
+  }
+
+  private _buildHeaders(
+    contentType: ContentType = "application/json"
+  ): Headers {
     const headers = new Headers();
 
-    if (this.options.contentType && this.options.contentType !== "json") {
-      headers.append(
-        "Content-Type",
-        `application/vnd.sumologic.${this.options.contentType}`
-      );
-    } else {
-      headers.append("Content-Type", "application/json");
-    }
+    headers.append("Content-Type", contentType);
 
     if (this.options.sourceName) {
       headers.append("X-Sumo-Name", this.options.sourceName);
@@ -96,14 +103,14 @@ export class SumoLogger {
     return headers;
   }
 
-  public async log(message: GraphiteMessage | CarbonTwoMessage | string) {
+  public async log(message: Message) {
     if (
       typeof message !== "string" &&
       !(message instanceof GraphiteMessage) &&
       !(message instanceof CarbonTwoMessage)
     ) {
       throw new InvalidParameterError(
-        `Error invoking log method: Expected message to be of type string, but received ${typeof message}`
+        "Error invoking log method: Expected message to be of type string | GraphiteMessage | CarbonTwoMessage"
       );
     }
 
@@ -116,7 +123,7 @@ export class SumoLogger {
     }
 
     return fetch(this.options.endpoint, {
-      headers: this._buildHeaders(),
+      headers: this._buildHeaders(this._buildContentType(message)),
       body: messageBody,
       method: "POST",
     });
