@@ -114,18 +114,10 @@ export class SumoLogger {
       );
     }
 
-    let messageBody: string;
-
-    if (typeof message === "string") {
-      messageBody = message;
-    } else {
-      messageBody = message.toString();
-    }
-
     return fetch(this.options.endpoint, {
       headers: this._buildHeaders(this._buildContentType(message)),
-      body: messageBody,
       method: "POST",
+      body: typeof message === "string" ? message : message.toString(),
     });
   }
 }
