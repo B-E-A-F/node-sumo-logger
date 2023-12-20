@@ -1,5 +1,13 @@
 # sumo-logger.js
 
+<p align=center >
+   <img src="https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg" alt="npm version" height="20">
+  <a href="https://www.npmjs.com/package/sumo-logger.js"><img src="https://badge.fury.io/js/sumo-logger.js.svg" alt="npm version" height="20"></a>
+  <a href="https://twitter.com/Archer_Script" target="_parent">
+    <img alt="Twitter" height=20 src="https://img.shields.io/twitter/follow/Archer_Script.svg?style=&logo=twitter&logoColor=white&label=@Archer_Script&labelColor=%231DA1F2&color=%231DA1F2" />
+  </a>
+</p>
+
 `sumo-logger.js` is a zero dependency logging library for sumo logic. It was built as a solution to [js-sumo-logger](https://github.com/SumoLogic/js-sumo-logger) no longer being maintained efficiently.
 
 ## Table of Contents
