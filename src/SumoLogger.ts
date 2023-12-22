@@ -1,7 +1,7 @@
-import { CarbonTwoMessage } from "./CarbonTwoMessage";
-import { GraphiteMessage } from "./GraphiteMessage";
-import { InvalidParameterError } from "./InvalidParameterError";
-import { ValidationError } from "./ValidationError";
+import { CarbonTwoMessage } from "./CarbonTwoMessage.js";
+import { GraphiteMessage } from "./GraphiteMessage.js";
+import { InvalidParameterError } from "./InvalidParameterError.js";
+import { ValidationError } from "./ValidationError.js";
 
 type SumoLoggerConfig = {
   endpoint: string;
