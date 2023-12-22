@@ -1,6 +1,6 @@
 {
   "name": "sumo-logger.js",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "engines": {
     "node": ">=18.0.0"
   },
@@ -24,7 +24,9 @@
     "logger",
     "logging",
     "log",
-    "sumologic"
+    "sumologic",
+    "sumo-logger",
+    "sumo-"
   ],
   "bugs": {
     "url": "https://github.com/mikearche/node-sumo-logger/issues"
