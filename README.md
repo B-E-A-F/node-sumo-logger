@@ -15,6 +15,7 @@
 - [Installation](#installation)
 - [Motive](#motive)
 - [Usage](#usage)
+- [ESM](#esm)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -89,6 +90,10 @@ await sumoLogger.log(
   [carbonTwoMessage.toString(), carbonTwoMessage.toString()].join("\n")
 );
 ```
+
+## ESM
+
+`sumo-logger.js` is a pure ESM package. Please refer to [this link](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) for instrructions on how to use this with CommonJS.
 
 ## Contributing
 

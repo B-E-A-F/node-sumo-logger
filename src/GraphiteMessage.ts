@@ -1,4 +1,4 @@
-import { ValidationError } from "./ValidationError";
+import { ValidationError } from "./ValidationError.js";
 
 export class GraphiteMessage {
   public path: string;
