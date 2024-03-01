@@ -93,7 +93,7 @@ await sumoLogger.log(
 
 ## ESM
 
-`sumo-logger.js` is a pure ESM package. Please refer to [this link](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) for instrructions on how to use this with CommonJS.
+`sumo-logger.js` is a pure ESM package. Please refer to [this link](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) if you are using CommonJS.
 
 ## Contributing
 
